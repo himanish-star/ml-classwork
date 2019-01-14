@@ -1,16 +1,32 @@
 window.onload = function () {
-    const canvas = document.getElementById("graph");
-    const ctx = canvas.getContext("2d");
+  const canvas = document.getElementById("graph");
+  const ctx = canvas.getContext("2d");
 
-    const {left, top, width, height} = canvas.getBoundingClientRect();
+  const {left, top, width, height} = canvas.getBoundingClientRect();
 
-    let points = [];
+  let points = [];
 
-    document.getElementById('graph').onclick = e => {
-      ctx.strokeRect(e.x-left,e.y-top,5,5);
-      points.push({x: e.x-left,y: e.y-top});
+  document.getElementById('graph').onclick = e => {
+    clearCanvas(ctx,width,height);
+    points.push({x: e.x-left,y: e.y-top});
+    plotPoints(ctx,points);
+    if(points.length > 1)
       drawLine(points,left+width,top+height);
-    };
+  };
+
+  // window.setTimeout(() => {
+  //   clearCanvas(ctx,width,height);
+  // },2000);
+};
+
+const plotPoints = (ctx,points) => {
+  points.forEach(point => {
+    ctx.strokeRect(point.x,point.y,5,5);
+  });
+};
+
+const clearCanvas = (ctx,width,height) => {
+  ctx.clearRect(0,0,width,height);
 };
 
 const drawLine = (points,endBottom,endRight) => {
