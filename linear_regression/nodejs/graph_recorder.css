@@ -1,4 +1,12 @@
 #graph {
-  border-left: 2px solid;
-  border-bottom: 2px solid;
+  border: 2px solid;
+}
+
+#graph2 {
+  border: 2px solid;
+}
+
+#container {
+  display: flex;
+  justify-content: space-around;
 }
