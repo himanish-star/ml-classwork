@@ -9,6 +9,10 @@ window.onload = function () {
 
   console.log(canvas2.getBoundingClientRect());
 
+  ctx2.moveTo(0,height2/2);
+  ctx2.lineTo(width2, height2/2);
+  ctx2.stroke();
+
   let points = [];
 
   document.getElementById('graph').onclick = e => {
@@ -31,6 +35,9 @@ window.onload = function () {
 
 const plotResidualPoints = (ctx,newPoints,left,top,width,height) => {
   ctx.clearRect(0,0,width,height);
+  ctx.moveTo(0,height/2);
+  ctx.lineTo(width, height/2);
+  ctx.stroke();
   newPoints.forEach(point => {
     ctx.strokeRect(point.yexp/2,height/2+point.yexp/2-point.yact/2,5,5);
     console.log(point.yexp,point.yexp-point.yact);
