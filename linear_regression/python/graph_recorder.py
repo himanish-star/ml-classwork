@@ -5,9 +5,24 @@ import matplotlib.pyplot as plt
 
 """ code for plotting Anscombe's datasets"""
 
+def draw_model(set):
+    x = np.array(set['x'])
+    y = np.array(set['y'])
+
+    mx = np.mean(x)
+    my = np.mean(y)
+
+    n = np.size(x)
+    xy = np.sum(x*y) - n*mx*my
+    xx = np.sum(x*x) - n*mx*mx
+    b1 = xy/xx
+    b0 = my - b1*mx
+    plt.plot(x,b0+b1*x)
+
 def plot(sets):
     for set in sets:
         plt.plot(set['x'], set['y'], 'o')
+        draw_model(set)
         plt.show()
 
 
