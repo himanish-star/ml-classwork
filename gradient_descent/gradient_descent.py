@@ -1,47 +1,52 @@
 import numpy as np
-import random
+import matplotlib.pyplot as plt
 
-# hypothesis h = X * theta
-# loss = h - y and maybe the squared cost (loss^2)/2m
-# gradient = X' * loss / m
-# theta = theta - alpha * gradient
+learning_rate = 0.3
 
+def gradient_descent(x, y, b0, b1):
+    y_calc = b0 + b1*x;
 
-# m denotes the number of examples here, not the number of features
-def gradientDescent(x, y, theta, alpha, m, numIterations):
-    xTrans = x.transpose()
-    for i in range(0, numIterations):
-        hypothesis = np.dot(x, theta)
-        loss = hypothesis - y
-        # avg cost per example (the 2 in 2*m doesn't really matter here.
-        # But to be consistent with the gradient, I include it)
-        cost = np.sum(loss ** 2) / (2 * m)
-        print("Iteration %d | Cost: %f" % (i, cost))
-        # avg gradient per example
-        gradient = np.dot(xTrans, loss) / m
-        # update
-        theta = theta - alpha * gradient
-    return theta
+    n = len(y)
+
+    error_b0 = sum(y_calc - y)/n
+    error_b1 = sum((y_calc - y)*x)/n
+
+    print((sum((y_calc-y)**2))/n)
+
+    b0 -= error_b0
+    b1 -= error_b1
+    return b0 , b1
+
+def regression_plot(counter, coords):
+    for coord in coords:
+        plt.plot(coord[0], coord[1], 'y.')
 
 
-def genData(numPoints, bias, variance):
-    x = np.zeros(shape=(numPoints, 2))
-    y = np.zeros(shape=numPoints)
-    # basically a straight line
-    for i in range(0, numPoints):
-        # bias feature
-        x[i][0] = 1
-        x[i][1] = i
-        # our target variable
-        y[i] = (i + bias) + random.uniform(0, 1) * variance
-    return x, y
+    x = np.array([coord[0] for coord in coords])
+    y = np.array([coord[1] for coord in coords])
 
-# gen 100 points with a bias of 25 and 10 variance as a bit of noise
-x, y = genData(100, 25, 10)
-# print(x, y)
-m, n = np.shape(x)
-numIterations= 100000
-alpha = 0.0005
-theta = np.ones(n)
-theta = gradientDescent(x, y, theta, alpha, m, numIterations)
-print(theta)
+    b0 = 0
+    b1 = 0
+
+    while counter > 0:
+        counter -= 1
+        b0, b1 = gradient_descent(x, y, b0, b1)
+        line, = plt.plot(x, b0 + b1*x, 'g')
+        plt.pause(0.2)
+        if counter != 0:
+            line.remove()
+
+
+    plt.show()
+
+    # while counter--:
+    #     gradient_descent(x, y, b0, b1)
+
+
+def main():
+    # generate random data
+    coords = np.random.randn(50,2)
+    regression_plot(10, coords)
+
+if __name__ == '__main__':
+    main()
