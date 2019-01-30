@@ -1,7 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from sklearn.datasets.samples_generator import make_blobs
 
-learning_rate = 0.3
+learning_rate = 0.01
 
 def gradient_descent(x, y, b0, b1):
     y_calc = b0 + b1*x;
@@ -13,13 +14,13 @@ def gradient_descent(x, y, b0, b1):
 
     print((sum((y_calc-y)**2))/n)
 
-    b0 -= error_b0
-    b1 -= error_b1
+    b0 -= error_b0*learning_rate
+    b1 -= error_b1*learning_rate
     return b0 , b1
 
 def regression_plot(counter, coords):
     for coord in coords:
-        plt.plot(coord[0], coord[1], 'y.')
+        plt.plot(coord[0], coord[1], 'b^')
 
 
     x = np.array([coord[0] for coord in coords])
@@ -32,21 +33,16 @@ def regression_plot(counter, coords):
         counter -= 1
         b0, b1 = gradient_descent(x, y, b0, b1)
         line, = plt.plot(x, b0 + b1*x, 'g')
-        plt.pause(0.2)
+        plt.pause(0.05)
         if counter != 0:
             line.remove()
 
-
     plt.show()
-
-    # while counter--:
-    #     gradient_descent(x, y, b0, b1)
-
 
 def main():
     # generate random data
-    coords = np.random.randn(50,2)
-    regression_plot(10, coords)
+    coords = make_blobs(n_samples=100, centers=4, n_features=2,random_state=0)
+    regression_plot(1000, coords[0])
 
 if __name__ == '__main__':
     main()
