@@ -41,7 +41,7 @@ def regression_plot(counter, coords):
 
 def main():
     # generate random data
-    coords = make_blobs(n_samples=100, centers=4, n_features=2,random_state=0)
+    coords = make_blobs(n_samples=100, centers=4, n_features=2,random_state=2)
     regression_plot(1000, coords[0])
 
 if __name__ == '__main__':
