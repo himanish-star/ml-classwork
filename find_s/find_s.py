@@ -31,7 +31,7 @@ def main():
     for colNum in range(0, len(zooData.columns) - 1):
         classifiedData[zooData.columns[colNum]] = [h[colNum] for h in classifiedSet]
 
-    classifiedData = pd.DataFrame(classifiedData, index=["Class #"+str(i) for i in range(1,8)])
+    classifiedData = pd.DataFrame(classifiedData, index=['mammal', 'fish', 'reptile', 'fish', 'amphibians', 'insect', 'other'])
     classifiedData = classifiedData[['name', 'hair', 'feathers', 'eggs', 'milk', 'airborne', 'aquatic', 'predator', 'toothed', 'backbone', 'breathes', 'venomous', 'fins', 'legs', 'tails', 'domestic', 'catsize']]
 
     classifiedData.to_csv('classifiedData.csv')

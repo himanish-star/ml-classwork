@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.datasets.samples_generator import make_blobs
 
-learning_rate = 0.01
+learning_rate = 0.105
 
 def gradient_descent(x, y, b0, b1):
     y_calc = b0 + b1*x;

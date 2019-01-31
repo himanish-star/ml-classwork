@@ -26,11 +26,6 @@ window.onload = function () {
       plotResidualPoints(ctx2,newPoints,left2,top2,width2,height2);
     }
   };
-
-  // window.setTimeout(() => {
-  //   clearCanvas(ctx,width,height);
-  // },2000);
-
 };
 
 const plotResidualPoints = (ctx,newPoints,left,top,width,height) => {
