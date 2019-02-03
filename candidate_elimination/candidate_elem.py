@@ -96,8 +96,8 @@ def run_iterations(data, g, s):
             hypothesis_print(iterationCount+1, g, s, 'Negative', trainingSet)
 
 def main():
-    data = np.array(pd.read_csv('data2.csv', header=None))
-
+    # data = np.array(pd.read_csv('data2.csv', header=None))
+    data = np.array(pd.read_csv('data.csv').drop(labels=['Example'], axis=1))
     print(data, '\n')
     g = ['?'] * (len(data[0,:])-1)
     s = ['phi'] * (len(data[0,:])-1)

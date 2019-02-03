@@ -7,6 +7,7 @@ Topics:
 - [x] **Task 1** Linear Regression, Residual Plot and Anscombe's Quartet `folder: linear_regression`
 - [x] **Task 2** Gradient Descent `folder: gradient_descent`
 - [x] **Task 3** Find S `folder: find_s`
+- [x] **Task 4** Candidate Elimination `folder: candidate_elimination`
 
 **Note** -- Folders which can be ignored:
 
