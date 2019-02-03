@@ -8,5 +8,6 @@ Topics:
 - [x] **Task 2** Gradient Descent `folder: gradient_descent`
 - [x] **Task 3** Find S `folder: find_s`
 
-Note: folders which can be ignored:
+**Note** -- Folders which can be ignored:
+
 `pythonPractice`, `flask-tutorial`
