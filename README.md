@@ -1,4 +1,4 @@
-# ml-classwork
+# machine learning - classwork
 
 This repository contains codes for various topics covered in ML classes :)
 
