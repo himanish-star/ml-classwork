@@ -9,6 +9,7 @@ Topics:
 - [x] **Task 3** Find S `folder: find_s`
 - [x] **Task 4** Candidate Elimination `folder: candidate_elimination`
 - [x] **Task 5** ID3 Algorithm `folder: id3_algo`
+
 **Note** -- Folders which can be ignored:
 
 `pythonPractice`, `flask-tutorial`
