@@ -1,0 +1,15 @@
+// ID3 algo
+digraph {
+	outlook -> windy [label=rainy]
+	outlook -> humidity [label=sunny]
+	1 [label=no]
+	humidity -> 1 [label=high]
+	2 [label=yes]
+	humidity -> 2 [label=normal]
+	3 [label=yes]
+	outlook -> 3 [label=overcast]
+	4 [label=yes]
+	windy -> 4 [label=weak]
+	5 [label=no]
+	windy -> 5 [label=strong]
+}
