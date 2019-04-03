@@ -41,8 +41,11 @@ def onclick(event):
         points.append([event.xdata,event.ydata])
         classValues.append(1)
     shapeShifter += 1
+    print(points)
+    print(classValues)
     if shapeShifter >= 2:
-        plotHyperplane()
+        # plotHyperplane()
+        pass
     plt.show()
 
 if __name__ == "__main__":
