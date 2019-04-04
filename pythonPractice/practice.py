@@ -4,6 +4,8 @@ from matplotlib import style
 style.use("ggplot")
 from sklearn import svm
 
+plt.figure(figsize=(10,10))
+
 X = np.array([[0.16733870967741934, 0.9718614718614719],
               [0.175354773673257, 1.0153638425066998],
               [0.16788011722552532, 0.9822709676944372],
@@ -28,11 +30,9 @@ X = np.array([[0.16733870967741934, 0.9718614718614719],
               [0.16827122357370933, 0.9943118024265984],
               [0.16827122357370933, 0.9943118024265984]])
 
-X = X * 100
-
 y = [1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1]
 
-clf = svm.SVC(kernel='linear', C = 1.0)
+clf = svm.SVC(kernel='linear', C = 10000.0, gamma = 1.0)
 clf.fit(X,y)
 
 w = clf.coef_[0]
@@ -40,11 +40,10 @@ print(w)
 
 a = -w[0] / w[1]
 
-xx = np.linspace(0,12)
+xx = X[:,0]
 yy = a * xx - clf.intercept_[0] / w[1]
 
 h0 = plt.plot(xx, yy)
 
 plt.scatter(X[:, 0], X[:, 1], c = y)
-plt.legend()
 plt.show()
