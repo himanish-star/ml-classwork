@@ -11,7 +11,7 @@ Topics:
 - [x] **Task 5** ID3 Algorithm `folder: id3_algo`
 - [ ] **Task 6** C4.5 Algorithm [WIP]
 - [ ] **Task 7** weka [WIP]
-- [ ] **Task 8** Support Vector Machines [WIP]
+- [x] **Task 8** Support Vector Machines `folder: svm`
 
 **Note** -- Folders which can be ignored:
 
