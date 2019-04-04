@@ -12,6 +12,7 @@ Topics:
 - [ ] **Task 6** C4.5 Algorithm [WIP]
 - [ ] **Task 7** weka [WIP]
 - [ ] **Task 8** Support Vector Machines [WIP]
+
 **Note** -- Folders which can be ignored:
 
 `pythonPractice`, `flask-tutorial`
